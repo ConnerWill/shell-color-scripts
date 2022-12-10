@@ -1,7 +1,7 @@
 # Maintainer: Conner Will (ConnerWill) <conner.will@connerwill.com>
 pkgname=shell-color-scripts
 _pkgname=shell-color-scripts
-pkgver=1.1.r113.1977785
+pkgver=1.1.r114.e30b77c
 pkgrel=1
 pkgdesc="A CLI for the collection of terminal color scripts. Included 52 beautiful terminal color scripts."
 arch=('i686' 'x86_64')
