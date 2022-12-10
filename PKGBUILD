@@ -1,12 +1,11 @@
-# Maintainer: Derek Taylor (DistroTube) <derek@distrotube.com>
-# Contributor: Kunkgg <goukun07@gmail.com>
+# Maintainer: Conner Will (ConnerWill) <conner.will@connerwill.com>
 pkgname=shell-color-scripts
 _pkgname=shell-color-scripts
 pkgver=1.1.r96.da2e3c5
 pkgrel=1
 pkgdesc="A CLI for the collection of terminal color scripts. Included 52 beautiful terminal color scripts."
 arch=('i686' 'x86_64')
-url="https://gitlab.com/dwt1/shell-color-scripts.git"
+url="https://github.com/connerwill/shell-color-scripts.git"
 license=('MIT')
 groups=()
 depends=(binutils)
