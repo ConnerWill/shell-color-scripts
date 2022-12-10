@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#vim:filetype=bash:shiftwidth=2:softtabstop=2:noexpandtab:foldmethod=marker:foldmarker=###{{{,###}}}
 
 # Simple CLI for shell-color-scripts
 
@@ -18,22 +19,27 @@ fi
 
 list_colorscripts="$($LS_CMD | xargs -I $ basename $ | cut -d ' ' -f 1 | nl)"
 length_colorscripts="$($LS_CMD | wc -l)"
-list_blacklist="$($LS_CMD_B 2>/dev/null | xargs -I $ basename $ | cut -d ' ' -f 1 | nl || "")" 
+list_blacklist="$($LS_CMD_B 2>/dev/null | xargs -I $ basename $ | cut -d ' ' -f 1 | nl || "")"
 length_blacklist="$($LS_CMD_B 2>/dev/null | wc -l || 0)"
 
 fmt_help="  %-20s\t%-54s\n"
 function _help() {
-    echo "Description: A collection of terminal color scripts."
-    echo ""
-    echo "Usage: colorscript [OPTION] [SCRIPT NAME/INDEX]"
-    printf "${fmt_help}" \
-        "-h, --help, help" "Print this help." \
-        "-l, --list, list" "List all installed color scripts." \
-        "-r, --random, random" "Run a random color script." \
-        "-e, --exec, exec" "Run a specified color script by SCRIPT NAME or INDEX."\
-        "-b, --blacklist, blacklist" "Blacklist a color script by SCRIPT NAME or INDEX." \
-        "-u, --unblacklist, unblacklist" "Unblacklist a color script by SCRIPT NAME or INDEX." \
-        "-a, --all, all" "List the outputs of all colorscripts with their SCRIPT NAME"
+    printf "\x1B[0;1;4;38;5;33mName\x1B[0m:\n\n"
+    printf "\t\x1B[0;1;38;5;46m%s\x1B[0m\n\n\n" "$(basename $0)"
+    printf "\x1B[0;1;4;38;5;33mDescription\x1B[0m:\n\n"
+    printf "\t\x1B[0;38;5;201mCollection of terminal color scripts\x1B[0m\n\n\n"
+    printf "\x1B[0;1;4;38;5;33mUsage\x1B[0m:\n\n"
+    printf "\t\x1B[0;1;38;5;46mcolorscript\x1B[0m \x1B[0;3;38;5;7m[OPTION] \x1B[0;3;38;5;7m[SCRIPT NAME/INDEX]\x1B[0m\n\n\n"
+    printf "\x1B[0;1;4;38;5;33mOptions\x1B[0m:\n\n"
+    printf "\t\x1B[0;38;5;7m${fmt_help}" \
+        "-h, [--]help" "Print this help" \
+        "-l, [--]list" "List all installed color scripts" \
+        "-r, [--]random" "Run a random color script" \
+        "-e, [--]exec" "Run a specified color script by SCRIPT NAME or INDEX"\
+        "-b, [--]blacklist" "Blacklist a color script by SCRIPT NAME or INDEX" \
+        "-u, [--]unblacklist" "Unblacklist a color script by SCRIPT NAME or INDEX" \
+        "-a, [--]all" "List the outputs of all colorscripts with their SCRIPT NAME"
+    printf "\n"
 }
 
 function _list() {
@@ -159,4 +165,3 @@ case "$#" in
         exit 1
         ;;
 esac
-
